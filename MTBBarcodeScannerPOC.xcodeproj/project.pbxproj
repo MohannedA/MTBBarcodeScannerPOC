@@ -12,6 +12,7 @@
 		04B039F120F4CA470096F512 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B039EF20F4CA470096F512 /* Main.storyboard */; };
 		04B039F320F4CA480096F512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B039F220F4CA480096F512 /* Assets.xcassets */; };
 		04B039F620F4CA480096F512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B039F420F4CA480096F512 /* LaunchScreen.storyboard */; };
+		27681206CEC6BA609E62AE80 /* Pods_MTBBarcodeScannerPOC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30EEB0F2937BA850302D38C1 /* Pods_MTBBarcodeScannerPOC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		04B039F220F4CA480096F512 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B039F520F4CA480096F512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B039F720F4CA480096F512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30EEB0F2937BA850302D38C1 /* Pods_MTBBarcodeScannerPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTBBarcodeScannerPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7014092E0BBE6EFE38158260 /* Pods-MTBBarcodeScannerPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTBBarcodeScannerPOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTBBarcodeScannerPOC/Pods-MTBBarcodeScannerPOC.release.xcconfig"; sourceTree = "<group>"; };
+		EA6F0DD595C029C4DD9CEEBB /* Pods-MTBBarcodeScannerPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTBBarcodeScannerPOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MTBBarcodeScannerPOC/Pods-MTBBarcodeScannerPOC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27681206CEC6BA609E62AE80 /* Pods_MTBBarcodeScannerPOC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				04B039EA20F4CA470096F512 /* MTBBarcodeScannerPOC */,
 				04B039E920F4CA470096F512 /* Products */,
+				60C92F1AB4AA2EFB4833EB07 /* Pods */,
+				444A3E559313DA77846552FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = MTBBarcodeScannerPOC;
 			sourceTree = "<group>";
 		};
+		444A3E559313DA77846552FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30EEB0F2937BA850302D38C1 /* Pods_MTBBarcodeScannerPOC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60C92F1AB4AA2EFB4833EB07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA6F0DD595C029C4DD9CEEBB /* Pods-MTBBarcodeScannerPOC.debug.xcconfig */,
+				7014092E0BBE6EFE38158260 /* Pods-MTBBarcodeScannerPOC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B039FA20F4CA480096F512 /* Build configuration list for PBXNativeTarget "MTBBarcodeScannerPOC" */;
 			buildPhases = (
+				2C7857A0FB6BA04CAA9157E4 /* [CP] Check Pods Manifest.lock */,
 				04B039E420F4CA470096F512 /* Sources */,
 				04B039E520F4CA470096F512 /* Frameworks */,
 				04B039E620F4CA470096F512 /* Resources */,
+				2202720D961EE9F412D29817 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2202720D961EE9F412D29817 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MTBBarcodeScannerPOC/Pods-MTBBarcodeScannerPOC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MTBBarcodeScanner/MTBBarcodeScanner.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTBBarcodeScanner.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MTBBarcodeScannerPOC/Pods-MTBBarcodeScannerPOC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C7857A0FB6BA04CAA9157E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MTBBarcodeScannerPOC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04B039E420F4CA470096F512 /* Sources */ = {
@@ -278,10 +343,13 @@
 		};
 		04B039FB20F4CA480096F512 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA6F0DD595C029C4DD9CEEBB /* Pods-MTBBarcodeScannerPOC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86K78YBMR9;
 				INFOPLIST_FILE = MTBBarcodeScannerPOC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,10 +363,13 @@
 		};
 		04B039FC20F4CA480096F512 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7014092E0BBE6EFE38158260 /* Pods-MTBBarcodeScannerPOC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86K78YBMR9;
 				INFOPLIST_FILE = MTBBarcodeScannerPOC/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
