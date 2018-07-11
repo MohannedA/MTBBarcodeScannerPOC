@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     // MARK: ~ Properties
     // Get reference of preview view in UI.
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var codeStringLabel: UILabel!
+    
+    // MARK: ~ Variables
     // Define the scanner.
     var scanner: MTBBarcodeScanner?
     // Define dictionary to store the code views.
@@ -20,7 +23,7 @@ class ViewController: UIViewController {
     // Define list to store the code strings.
     var codeStrings: [String] = [String]()
     
-    // MARK: ~ Others
+    // MARK: ~ Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Define the scanner to have "previewView" as its preview view.
@@ -35,27 +38,33 @@ class ViewController: UIViewController {
             if success { // If the user give permission, start scanning.
                 do {
                     try self.scanner?.startScanning(resultBlock: { codes in
+                        self.cleanScreen() // Clean the screen from the views if there are no codes.
+                        self.codeStringLabel.text = "" // Empty the codeStringLabel if there is no code on the screen.
                         if let codes = codes {
-                            // // For all codes in the screen.
+                            // Remove all the codeStrings that are no longer on the screen.
+                            self.codeStrings = [String]()
+                            // For all codes in the screen.
                             for code in codes {
+                                // Remove codeView that its code no longer on the screen.
+                                self.removeCodeView(code: code)
+                                // Draw codeView that its code no longer on the screen.
                                 self.drawCodeView(code: code)
-                                //self.removeCodeView(code: code)
-                                
                                 // Get the codeString.
                                 let stringValue = code.stringValue!
                                 // Add the stringValue to the codeStrings list.
                                 self.codeStrings.append(stringValue)
-                                // Print the stringValue.
+                                // Print the obtained stringValue.
                                 print("Scanned code: \(stringValue)")
+                                // Assign the obtained codeString to the codeStringLabel.
+                                self.codeStringLabel.text = stringValue
                             }
-                            self.codeStrings = [String]()
                         }
                     })
                 } catch {
-                    NSLog("Unable to start scanning")
+                    NSLog("Unable to start scanning.")
                 }
             } else { // If the user does not give permission, print scanning is not available due to not having permission.
-                NSLog("This app does not have permission to access the camera")
+                NSLog("This app does not have permission to access the camera.")
             }
         })
     }
@@ -64,7 +73,7 @@ class ViewController: UIViewController {
     /*To draw squares that bound the codes*/
     private func drawCodeView(code: AVMetadataMachineReadableCodeObject) {
         
-        // Bound the code
+        // Bound the code.
         let codeView: UIView = UIView(frame: code.bounds)
         codeView.backgroundColor = UIColor.green
         codeView.layer.borderWidth = 5.0
@@ -80,10 +89,16 @@ class ViewController: UIViewController {
     /*To remove the code views that are not on the screen*/
     private func removeCodeView(code: AVMetadataMachineReadableCodeObject) {
         for codeString in codeViews.keys {
-            if !codeStrings.contains(codeString) {
-                codeViews[codeString]?.removeFromSuperview()
-                codeViews[codeString] = nil
+            if !codeStrings.contains(codeString) { // If codeString's code is no longer on the screen.
+                codeViews[codeString]?.removeFromSuperview() // Remove the codeView from the screen.
+                codeViews[codeString] = nil // Remove the codeView from the dict. of codeViews.
             }
+        }
+    }
+    /*To clean the screen if there is no code on the screen*/
+    private func cleanScreen() {
+        for view in self.previewView.subviews {
+            view.removeFromSuperview()
         }
     }
 

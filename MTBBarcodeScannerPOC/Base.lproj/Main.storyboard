@@ -22,10 +22,19 @@
                                 <rect key="frame" x="0.0" y="99" width="375" height="457"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S0-a0-sxc">
+                                <rect key="frame" x="16" y="599" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6S0-a0-sxc" secondAttribute="trailing" constant="16" id="DWN-ZW-jZ2"/>
+                            <constraint firstItem="6S0-a0-sxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ESI-jI-jLG"/>
                             <constraint firstItem="jMK-GJ-2nQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ODq-4H-SUJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6S0-a0-sxc" secondAttribute="bottom" constant="38" id="VcL-VH-FpA"/>
                             <constraint firstItem="jMK-GJ-2nQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="79" id="XsC-FY-uwB"/>
                             <constraint firstItem="jMK-GJ-2nQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tbW-Rl-ekA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jMK-GJ-2nQ" secondAttribute="bottom" constant="111" id="xtq-TV-tou"/>
@@ -33,6 +42,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="codeStringLabel" destination="6S0-a0-sxc" id="Bll-Dh-e9e"/>
                         <outlet property="previewView" destination="jMK-GJ-2nQ" id="jqH-jD-WNM"/>
                     </connections>
                 </viewController>
